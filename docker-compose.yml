@@ -1,0 +1,14 @@
+version: '3'
+services:
+  server:
+    image: kylemanna/openvpn:latest
+    restart: always
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "$PUBLIC_PORT:1194/$PROTO"
+    volumes:
+      - ovpn-data:/etc/openvpn
+
+volumes:
+  ovpn-data:
